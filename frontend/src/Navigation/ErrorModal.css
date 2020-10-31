@@ -1,0 +1,23 @@
+.btn {
+    position: absolute;
+    bottom: 0%;
+    width: 30%;
+    height: 85%;
+    margin: 1.7%;
+    right: 3%;
+    border-radius: 30px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fc5185;
+    border: none;
+    outline: none;
+    font-family: Calibri;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff6ff;
+}
+.content {
+    background-color: transparent;
+    text-align: justify;
+    padding-left: 5%;
+    padding-right: 5%;
+}

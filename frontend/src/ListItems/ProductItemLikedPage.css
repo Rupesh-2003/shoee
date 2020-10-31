@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.itemLiked {
+    position: relative;
+    width: 100%;
+    height: 16vh;
+    list-style: none;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 15px;
+    background-image: linear-gradient(75deg, #90e4ee 19%, #87a5cf 58%, #6767bc 89%);
+}
+.productImage {
+    position: absolute;
+    width: 35%;
+    height: 85%;
+    border-radius: 15px;
+    top: 8%;
+    left: 4%;
+    background-color: white;
+}
+.productImage img {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    background-color: transparent;
+    transform: rotate(-20deg);
+}
+.brandLikedPage {
+    position: absolute;
+    left: 43%;
+    top: 7%;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 27px;
+    font-weight: bold;
+    background: linear-gradient(to right, #ffbf02, #ed0082); color:rgba(0, 0, 0, 0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+.modelLikedPage {
+    position: absolute;
+    left: 43%;
+    top: 54%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: black;
+    background-color: transparent;
+}
+.sidebarLikedPage {
+    position: absolute;
+    width: 0.6%;
+    height: 20%;
+    top: 18%;
+    left: 3%;
+    z-index: 2;
+    /* background-color: red; */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.priceLikedPage {
+    position: absolute;
+    left: 78%;
+    top: 56%;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+.heartLikedPage {
+    position: absolute;
+    width: 9%;
+    height: 22%;
+    top: 13%;
+    left: 86%;
+    background-color: transparent;
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="28" viewBox="0 0 41 28">
+  <g id="Component_14_5" data-name="Component 14 – 5" transform="translate(41 28) rotate(180)">
+    <g id="Component_12_3" data-name="Component 12 – 3">
+      <g id="Rectangle_7" data-name="Rectangle 7" fill="#6a5acd" stroke="#707070" stroke-width="1">
+        <rect width="41" height="28" rx="14" stroke="none"/>
+        <rect x="0.5" y="0.5" width="40" height="27" rx="13.5" fill="none"/>
+      </g>
+    </g>
+    <g id="iconmonstr-arrow-20" transform="translate(16 6)">
+      <path id="iconmonstr-arrow-20-2" data-name="iconmonstr-arrow-20" d="M9.223,1,7.207,3.185,11.58,7.958H0v3.085H11.58L7.207,15.815,9.223,18l7.771-8.5Z" transform="translate(0 -1)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

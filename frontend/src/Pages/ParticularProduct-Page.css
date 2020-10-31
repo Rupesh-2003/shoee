@@ -1,0 +1,166 @@
+.backArrow {
+    position: absolute;
+    width: 11%;
+    height: 3.5%;
+    left: 4.5%;
+    top: 2.3%;
+    z-index: 1;
+    background-color: transparent;
+}
+.photo-div {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 27%;
+    background-color: #ffffff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 0;
+    margin: 0;
+}
+.photo-div img {
+    position: absolute;
+    width: 60%;
+    height: 94%;
+    right: 19.5%;
+    left: 19.5%;
+    background-color: transparent;
+}
+.photo-div div img {
+    background-color: transparent;
+}
+ .model-product {
+    position: absolute;
+    top: 29%;
+    width: 70%;
+    height: 3.5%;
+    margin-left: 3%;
+    background-color: transparent;
+    font-size: 21px;
+    font-weight: 500;
+    text-align: left;
+    color: #696969;
+}
+.price-product {
+    position: absolute;
+    top: 33%;
+    width: 25%;
+    height: 3%;
+    margin-left: 3%;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: left;
+    color: #696969;
+}
+.inclusive {
+    position: absolute;
+    top: 33.5%;
+    width: 50%;
+    height: 3%;
+    margin-left: 30%;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: left;
+    color: #2ecc71;
+}
+.free-delivery {
+    display: table;
+    position: absolute; 
+    top: 38%;
+    width: 100%;
+    height: 9%;
+    background-color: white;
+    border-radius: 10px;
+    color: #a9a9a9;
+}
+.free-delivery div {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 100%;
+    font-weight: 500;
+    background-color: transparent;
+    padding-left: 3.3%;
+    top: 10%;
+}
+.details {
+    display: table;
+    position: absolute; 
+    top: 51%;
+    width: 100%;
+    height: 18%;
+    background-color: white;
+    border-radius: 10px;
+    color: #696969;
+    
+}
+.details div {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 100%;
+    font-weight: 500;
+    height: 70%;
+    background-color: transparent;
+    padding-left: 3.3%;
+}
+.sizeOptions {
+    position: absolute;
+    top: 77%;
+    width: 25%;
+    height: 2.2%;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.13;
+    margin-left: 3%;
+    color: #696969;
+}
+.SizeBar {
+    position: absolute;
+    top: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 4.8%; 
+    margin-left: 25%;
+}
+.SizeBar div {
+    position: relative;
+    width: 15%;
+    height: 100%; 
+    margin: 0 2.3%;
+    outline: none;
+}
+.SizeBar div label {
+    /* cursor: pointer; */
+}
+.SizeBar div label input[type="radio"] {
+    display: none;
+}
+.SizeBar div label span {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%; 
+    background-color: white;
+    border: solid 1px #707070;
+    outline: none;
+    border-radius: 10px;
+    line-height: 40px;
+    text-align: center;
+}
+.SizeBar div label input[type="radio"]:checked ~ span {
+    background: #f1c40f;
+}
+.addToCart {
+    position: absolute;
+    top: 91%;
+    width: 43%;
+    height: 7%;
+    left: 4%;
+}
+.buyNow {
+    position: absolute;
+    top: 91%;
+    width: 43%;
+    height: 7%;
+    right: 4%;
+}

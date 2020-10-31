@@ -1,0 +1,14 @@
+<svg id="Component_29_2" data-name="Component 29 – 2" xmlns="http://www.w3.org/2000/svg" width="158" height="52" viewBox="0 0 158 52">
+  <g id="Component_28_2" data-name="Component 28 – 2">
+    <rect id="Rectangle_23" data-name="Rectangle 23" width="158" height="52" rx="15" fill="#f1c40f"/>
+    <text id="Add_to_Cart_" data-name="Add to Cart " transform="translate(24 32)" fill="#fff" font-size="16" font-family="FranklinGothic-Medium, Franklin Gothic" font-weight="500"><tspan x="0" y="0">Add to Cart </tspan></text>
+  </g>
+  <g id="cart" transform="translate(108.28 3.91)">
+    <g id="Group_1" data-name="Group 1" transform="translate(6.504 28.463)">
+      <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="2.71" cy="2.612" rx="2.71" ry="2.612" transform="translate(10.84)" fill="#455a64"/>
+      <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="2.71" cy="2.612" rx="2.71" ry="2.612" fill="#455a64"/>
+    </g>
+    <path id="Path_1" data-name="Path 1" d="M105.8,74.881a.551.551,0,0,0-.407-.177H85.885a.532.532,0,0,0-.542.523.509.509,0,0,0,.009.1l1.626,8.358a.537.537,0,0,0,.532.426H102.4a2.678,2.678,0,0,0,2.69-2.288l.851-6.527A.51.51,0,0,0,105.8,74.881Z" transform="translate(-81.006 -60.867)" fill="#fff"/>
+    <path id="Path_2" data-name="Path 2" d="M22.223,27.419H9.712a3.772,3.772,0,0,1-3.72-2.939L3.35,11.748H.542a.523.523,0,1,1,0-1.045H3.794a.537.537,0,0,1,.531.418l2.73,13.153a2.7,2.7,0,0,0,2.657,2.1H22.223a.523.523,0,1,1,0,1.045Z" fill="#455a64"/>
+  </g>
+</svg>

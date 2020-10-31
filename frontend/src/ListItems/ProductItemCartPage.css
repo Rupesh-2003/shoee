@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.liCartPage {
+    position: relative;
+    width: 100%;
+    height: 16vh;
+    list-style: none;
+    /* border: black solid 1px; */
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 15px;
+    background-image: linear-gradient(75deg, #90e4ee 19%, #87a5cf 58%, #6767bc 89%);
+}
+.imageBox {
+    position: absolute;
+    width: 35%;
+    height: 85%;
+    background-color: white;
+    left: 4%;
+    top: 8%;
+    border-radius: 15px;
+}
+.productImageCart {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    background-color: transparent;
+    transform: rotate(-20deg);
+}
+.brandCartPage {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    font-size: 27px;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    top: 7%;
+    left: 43%;
+}
+.modelCartPage {
+    position: absolute;
+    background-color: transparent;
+    left: 43%;
+    top: 33%;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.sidebarCarPage {
+    position: absolute;
+    width: 0.6%;
+    height: 20%;
+    top: 18%;
+    left: 3%;
+    background-color: red;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.priceCartPage {
+    position: absolute;
+    top: 13%;
+    right: 5%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    background-color: transparent;
+}
+.sizeTag {
+    position: absolute;
+    top: 55%;
+    left: 82%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+}
+.sizeCartPage {
+    position: absolute;
+    width: 16%;
+    height: 15%;
+    top: 73%;
+    left: 79%;
+    border-radius: 15px;
+    background-color: white;
+}
+.decreaseSize {
+    position: absolute;
+    left: 0;
+    width: 33%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border: none;
+    outline: none;
+    border-right: #707070 solid 1px;
+    padding: 0;
+    align-content: center;
+    background-color: transparent;
+}
+.minus {
+    width: 60%;
+    height: 100%;
+    background-color: transparent;
+}
+.sizeNumber {
+    position: absolute;
+    left: 33%;
+    width: 30%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 13px;
+    color: #707070;
+    background-color: transparent;
+}
+.increaseSize {
+    position: absolute;
+    right: 0;
+    width: 33%;
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+    outline: none;
+    border-left: #707070 solid 1px;
+    padding: 0;
+    background-color: transparent;
+}
+.add {
+    width: 60%;
+    height: 100%;
+    background-color: transparent;
+}
+.dustbin {
+    position: absolute;
+    width: 6%;
+    height: 20%;
+    right: 23%;
+    top: 70%;
+    background-color: transparent;
+}

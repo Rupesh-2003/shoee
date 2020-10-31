@@ -1,0 +1,9 @@
+.products {
+    -webkit-column-count: 2;
+    column-count: 2;
+    border-color: black solid 1px;
+    margin: 0;
+    padding-left: 5%;
+    padding-right: 5%; 
+    align-content: center;
+}

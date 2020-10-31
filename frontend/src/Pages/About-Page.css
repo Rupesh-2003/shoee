@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.abc {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.homeIcon {
+    position: absolute;
+    width: 9%;
+    height: 5%;
+    top: 1.7%;
+    left: 4%;
+    background-color: transparent;
+}
+.homeText {
+    position: absolute;
+    font-size: 20px;
+    background-color: transparent;
+    top: 3.8%;
+    left: 14%;
+}
+.homeBar {
+    position: absolute;
+    width: 15%;
+    height: 0.4%;   
+    top: 6.5%;
+    left: 5%;
+    border-radius: 10px;
+    background-color: #bf00ff;
+}
+.photo {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+    border-radius: 50%;
+}
+.developerName {
+    position: relative;
+    top: 1%;
+    text-align: center;
+    font-size: 20px;
+    background-color: transparent;
+}
+.age1 {
+    width: 46%;
+    height: 20%;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+.qualification {
+    position: absolute;
+    width: 46%;
+    height: 10%;
+    margin-top: 3%;
+    right: 3%;
+}
+.sampleProduct {
+    width: 46%;
+    height: 22%;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 3%;
+    align-content: center;
+}
+.sampleProductModel {
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 2%;
+    width: 40%;
+    height: 6.5%;
+    font-size: 9px;
+    color: #707070;
+    background-color:transparent;
+    overflow: visible;
+}
+.sampleProductBrand {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: #707070;
+    background-color:transparent;
+    margin-top: 8%;
+    margin-left: 2%;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sampleProductSideBar {
+    position: absolute;
+    margin-left: -0.3%;
+    margin-top: 5%;
+    width: 0.5%;
+    height: 3%;
+    background-color: red;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.sampleProductImage{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 12%;
+    width: 75%;
+    height: 70%;
+    background-color: transparent;
+    z-index: 1;
+}
+.sampleProductPriceText {
+    position: absolute;
+    margin-left: 2%;
+    font-size: 9px;
+    background-color: transparent;
+    z-index: 2;
+    color: #707070;
+}
+.sampleProductPrice {
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 2%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #696969;
+    background-color: transparent;
+    background: linear-gradient(to right, #ffbf02, #ed0082); color:rgba(0, 0, 0, 0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+.sampleProductLike {
+    border: black solid 1px;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 20%;
+    height: 17%;
+    margin-top: 5%;
+    margin-left: 50%; 
+    background-color: transparent;
+}
+.sampleProductArrow {
+    position: absolute;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-top: 3%;
+    left: 37%;
+    background-color:transparent;
+}
+.siteInfo {
+    position: absolute;
+    width: 46%;
+    background-color: transparent;
+    right: 3%;
+    top: 50%;
+    font-size: 20px;
+    color: #707070;
+}
+.techStackUsed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+    border-radius: 10px;
+    background-color: #282c35;
+}
+.contact {
+    position: absolute;
+    width: 100%;
+    height: 8%;
+    background-color: white;
+    bottom: 0;
+}
+.contactMe {
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+}
+.location {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    bottom: 15%;
+    background-color: transparent;
+}
+.locationIcon {
+    position: relative;
+    left: 5%;
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+}
+.gitHubIcon {
+    position: absolute;
+    height: 45%;
+    background-color: transparent;
+    right: 22%;
+    bottom: 15%;
+    outline: none;
+}
+.hackerrankIcon {
+    position: absolute;
+    height: 50%;
+    background-color: transparent;
+    height: 54%;
+    bottom: 11%;
+    right: 12%;
+    outline: none;
+}
+.instagramIcon {
+    position: absolute;
+    right: 3%;
+    height: 45%;
+    background-color: transparent;
+    outline: none;
+    bottom: 15%;
+}

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.cart-logo {
+    background-color: white;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 7%;
+    height: 75%;
+    margin-top: 2%;
+    margin-left: 90%;
+    outline: none;
+}
+.cart-logo img {
+    background-color: white;
+}
+.heart-logo {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 8%;
+    height: 58%;
+    margin-top: 2.5%;
+    margin-left: 79.5%;
+    outline: none;
+}
+.heart-logo img {
+    background-color: white;
+}
+.menu-logo {
+    border: none;
+    outline: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 6%;
+    height: 60%;
+    margin-top: 2%;
+    margin-left: 4%;
+}
+.menu-logo img {
+    background-color: white;
+}
+.temp {
+    position: absolute;
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 45px;
+    margin-top: 3%;
+    margin-left: 75%;
+    background-color: transparent;
+    transform: rotate(180deg);
+}
+.profilePhoto {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+    width: 45%;
+    height: 14.5%;
+    border-radius: 50%;
+}
+.halfCirlce {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: -7%;
+    width: 49%;
+    height: 8%;
+    border-radius: 0 0 50% 50%/ 0 0 100% 100%;
+    border: 12px solid grey ;
+    background-color: transparent;
+    border-top: none;
+    border-top-color: transparent;
+}
+
+.sideBarName {
+    position: relative;
+    top: -5%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    background-color: transparent;
+    color: white;
+}
+.yourOrders {
+    position: absolute;
+    top: 35%;
+    display: table;
+    width: 100%;
+    height: 4%;
+    background-color: transparent;
+}
+.auth {
+    position: absolute;
+    top: 42%;
+    display: table;
+    width: 100%;
+    height: 4%;
+    background-color: transparent;
+}
+.about {
+    position: absolute;
+    top: 49%;
+    display: table;
+    width: 100%;
+    height: 4%;
+    background-color: transparent;
+}
+.icon {
+    position: absolute;
+    width: 12%;
+    height: 100%;
+    margin-left: 8%;
+    background-color: transparent;
+}
+.text {
+    display: table-cell;
+    margin-left: 30%;
+    width: 70%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    vertical-align: middle;
+    background-color: transparent;
+}
+.copyright {
+    position: absolute;
+    display: table;
+    width: 100%;
+    height: 5%;
+    top: 87%;   
+    background-color: transparent;
+}
+.copyrightIcon {
+    position: absolute;
+    width: 12%;
+    height: 60%;
+    top: 20%;
+    margin-left: 15%;
+    background-color: transparent;
+}
+.copyrightText {
+    display: table-cell;
+    margin-left: 30%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    vertical-align: middle;
+    background-color: transparent;
+    text-align: center;
+}

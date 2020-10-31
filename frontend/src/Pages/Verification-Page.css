@@ -1,0 +1,45 @@
+.otp-field  {
+    width: 14%;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    margin-top: 75%;
+    margin-left: 4.2%;
+    margin-right: 4%;
+    outline: none;
+    font-size: 150%;
+    align-content: center;
+    box-shadow: none;
+    text-align: center;
+}
+.heading{
+    position: absolute;
+    width: 50%;
+    height: 5%;
+    font-family: Calibri;
+    font-size: 30px;
+    font-weight: bold;
+    color: #707070;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    margin-top: 45%;
+    margin-left: 35%;
+    margin-right: 35%;
+    
+}
+.verify-btn {
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 30%;
+    height: 7%;
+    border-radius: 30px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fc5185;
+    border: none;
+    outline: none;
+    font-family: Calibri;
+    font-size: 33px;
+    font-weight: bold;
+    color: #fff6ff;
+}

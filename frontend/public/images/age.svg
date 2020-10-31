@@ -1,0 +1,25 @@
+<svg id="Component_34_1" data-name="Component 34 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="173" height="127" viewBox="0 0 173 127">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.021" y1="0.093" x2="0.978" y2="0.935" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f6ef2d"/>
+      <stop offset="1" stop-color="#e96e38"/>
+    </linearGradient>
+  </defs>
+  <rect id="Rectangle_108" data-name="Rectangle 108" width="173" height="127" rx="15" fill="#fff"/>
+  <rect id="Rectangle_109" data-name="Rectangle 109" width="133" height="43" rx="15" transform="translate(20 35)" fill="url(#linear-gradient)"/>
+  <text id="_17_yrs" data-name="17 yrs" transform="translate(54 66)" fill="#fff" font-size="26" font-family="Calibri"><tspan x="0" y="0">17 yrs</tspan></text>
+  <rect id="Rectangle_110" data-name="Rectangle 110" width="30" height="12" rx="6" transform="translate(20 93)" fill="#89cff0"/>
+  <rect id="Rectangle_111" data-name="Rectangle 111" width="61" height="12" rx="6" transform="translate(52 93)" fill="#df73ff"/>
+  <rect id="Rectangle_112" data-name="Rectangle 112" width="38" height="12" rx="6" transform="translate(115 93)" fill="#9acd32"/>
+  <text id="_12" data-name="12" transform="translate(31 102)" fill="#fff" font-size="9" font-family="Calibri"><tspan x="0" y="0">12</tspan></text>
+  <text id="March" transform="translate(71 102)" fill="#fff" font-size="9" font-family="Calibri"><tspan x="0" y="0">March</tspan></text>
+  <text id="_2003" data-name="2003" transform="translate(125 102)" fill="#fff" font-size="9" font-family="Calibri"><tspan x="0" y="0">2003</tspan></text>
+  <g id="circular-line-with-word-age-in-the-center" transform="translate(8.75 7)">
+    <g id="Group_11" data-name="Group 11">
+      <path id="Path_44" data-name="Path 44" d="M22.977,18.681,20.212,13.4l-2.765,5.285h1.862a9.058,9.058,0,0,1-8.646,6.04,8.9,8.9,0,0,1-9.085-8.683,8.9,8.9,0,0,1,9.085-8.683,9.087,9.087,0,0,1,8.47,5.569l.908-1.736a10.75,10.75,0,0,0-9.377-5.343A10.449,10.449,0,0,0,0,16.038,10.449,10.449,0,0,0,10.664,26.231a10.605,10.605,0,0,0,10.291-7.55h2.021Z" transform="translate(0 -5.845)"/>
+      <path id="Path_45" data-name="Path 45" d="M35.486,70.458h1l.3-1.044h1.219l.329,1.044h1.036l-1.32-4.068H36.788Zm1.693-2.6c.069-.236.133-.544.2-.785h.012c.063.241.139.544.215.785l.265.864h-.941Z" transform="translate(-30.483 -58.232)"/>
+      <path id="Path_46" data-name="Path 46" d="M66.991,66.832a2.468,2.468,0,0,1,.991.174l.2-.737A3.056,3.056,0,0,0,67,66.07a2.16,2.16,0,0,0-2.432,2.125,1.926,1.926,0,0,0,.6,1.479,2.441,2.441,0,0,0,1.731.549,4.963,4.963,0,0,0,1.42-.229V67.851H66.738v.718H67.4v.851a1.334,1.334,0,0,1-.474.061,1.326,1.326,0,1,1,.07-2.649Z" transform="translate(-55.468 -57.955)"/>
+      <path id="Path_47" data-name="Path 47" d="M99.166,67.149v-.754H96.539v4.068h2.716v-.754h-1.75v-.966h1.567v-.749H97.505v-.845Z" transform="translate(-82.929 -58.236)"/>
+    </g>
+  </g>
+</svg>
