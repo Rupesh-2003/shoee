@@ -41,9 +41,13 @@ const signup = async (req, res, next) => {
 
     console.log(num)
 
-    const API_KEY_SMS = 'APnRkAga28u5mAWZeqPNwDBrP7AQydc3mgNktq50M5r2ZAzvWu3BltqxY4eW'
     const message = num +" is your verification code for activating your shoe account. This message was intended for "+name 
-    fast2sms.sendMessage({ authorization: API_KEY_SMS, message: message, numbers: [mobile] })
+    try {
+        await fast2sms.sendMessage({ authorization: process.env.SMS_KEY, message: message, numbers: [mobile] })
+    } catch (err)  {
+        console.log(err)
+    }
+    
     
     const newVerification = new Verification({
         mobile,

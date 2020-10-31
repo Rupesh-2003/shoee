@@ -2,6 +2,7 @@
     "env": {
         "DB_USER": "rupesh",
         "DB_PASSWORD": "80EfROcXMBhQ1daS",
-        "DB_NAME": "Shoe"
+        "DB_NAME": "Shoe",
+        "SMS_KEY": "APnRkAga28u5mAWZeqPNwDBrP7AQydc3mgNktq50M5r2ZAzvWu3BltqxY4eW"
     }
 }
