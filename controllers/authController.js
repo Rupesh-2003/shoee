@@ -39,7 +39,7 @@ const signup = async (req, res, next) => {
     var max = 9999;
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    console.log(num)
+    console.log("one time pass : "+num)
 
     const message = num +" is your verification code for activating your shoe account. This message was intended for "+name 
     try {
@@ -48,6 +48,16 @@ const signup = async (req, res, next) => {
         console.log(err)
     }
     
+    let isMobileInVerification
+    try{
+        isMobileInVerification = await Verification.findOne({ mobile: mobile})
+    } catch(err) {
+        console.log(err)
+    }
+
+    if(isMobileInVerification) {
+        isMobileInVerification.remove()
+    }
     
     const newVerification = new Verification({
         mobile,
