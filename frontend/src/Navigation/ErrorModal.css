@@ -17,7 +17,7 @@
 }
 .content {
     background-color: transparent;
-    text-align: justify;
+    /* text-align: justify; */
     padding-left: 5%;
     padding-right: 5%;
 }
