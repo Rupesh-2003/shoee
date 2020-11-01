@@ -27,7 +27,7 @@ const Navbar = () => {
         else {
             auth.logout()
             closeMenuHandler()
-            window.location.href = "http://localhost:3000/home"
+            window.location.href = `${process.env.REACT_APP_BACKEND_URL}/home`
         } 
     }
 
