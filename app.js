@@ -2,6 +2,7 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const mongoose = require('mongoose')
 const path =require('path')
+const slashes = require('connect-slashes')
 
 const AuthRoutes = require('./routes/authRoutes')
 
@@ -21,7 +22,7 @@ app.use('/', AuthRoutes)
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'))
-
+    app.use(slashes(false))
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
     })
