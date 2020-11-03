@@ -8,10 +8,10 @@ import SignupPage from './Pages/SignUp-Page'
 import LoginPage from './Pages/Login-Page'
 import Verificationpage from './Pages/Verification-Page'
 import ParticularProduct from './Pages/ParticulatProduct-Page'
-import { AuthContext } from './contexts/auth-context';
 import AboutPage from './Pages/About-Page'
 import YourOrderPage from './Pages/YourOrders-Page'
 import ChekoutPage from './Pages/Checkout-Page'
+import { AuthContext } from './contexts/auth-context'
 
 const App = () => {
   
@@ -24,6 +24,13 @@ const App = () => {
 
   const login = useCallback(() => {
     setIsLoggedIn(true)
+  }, []);
+
+  const logout = useCallback(() => {
+    setIsLoggedIn(false)
+    setCartList([])
+    setLikedlist([])
+    setMobile(0)
   }, []);
 
   const setName = useCallback((name) => {
@@ -49,14 +56,6 @@ const App = () => {
   const removeWarning = useCallback(() => {
     changeWarning(false)
   }, [])
-
-  const logout = useCallback(() => {
-    setIsLoggedIn(false)
-    setCartList([])
-    setLikedlist([])
-    setMobile(0)
-  }, [])
-
   
   let routes ;  
 
