@@ -78,8 +78,11 @@ const ParticularProduct = () => {
             history.push('/login')
         }
         else{
-            if(isSizeSelected())
+            if(isSizeSelected()) {
+                requiredProduct.size = isSizeSelected()
+                auth.setBuy([requiredProduct])
                 history.push('/checkout')
+            }
             else 
                 auth.setWarning('Warning: Please select size!')
         }

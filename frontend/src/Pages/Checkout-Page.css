@@ -1,0 +1,227 @@
+.totalDiv {
+    display: block;
+    /* position: absolute; */
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    padding-top: 1px;
+    width: 75%;
+    height: auto;
+    border-radius: 15px;
+    background-color: white;
+}
+.totalDiv span {
+    display: table;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    color: #00308f;
+    font-weight: bold;
+    font-size: 20px;
+    /* border: solid black 1px; */
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #707070;
+    margin-bottom: 0%;
+}
+.srno {
+    display: inline-block;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 3%;
+}
+.itemsCheckout {
+    display:inline-block;
+    background-color: transparent;
+    margin-left: 10%;
+    font-size: 12px;
+    font-weight: bold;
+}
+.sizeCheckout {
+    position: absolute;
+    display:inline-block;
+    background-color: transparent;
+    margin-top: 1%;
+    font-size: 12px;
+    font-weight: bold;
+    /* float: right; */
+    right: 29%;
+}
+.priceCheckout {
+    display:inline-block;
+    background-color: transparent; 
+    margin-top: 1.3%;
+    font-size: 12px;
+    font-weight: bold;
+    float: right;
+    margin-right: 5%;
+    /* border: solid black 1px; */
+}
+.line2 {
+    width: 100%;
+    height: 1px;
+    background-color: #707070;
+    margin-top: 1%;
+    margin-bottom: 0;
+}
+.checkoutList {
+    list-style: none;
+    padding: 0;
+    background-color: transparent;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+.subtotalHeading {
+    background-color: transparent;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 4%;
+}
+.subtotalAmount {
+    background-color: transparent;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    float: right;
+    margin-right: 5%;
+    margin-top: 1%;
+}
+.specialDiscount {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: transparent;
+    margin-left: 4%;
+}
+.specialDiscountAmount {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: transparent;
+    margin-top: 1%;
+    margin-right: 5%;
+    float: right;
+    
+}
+.totalCheckoutPage {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #00308f;
+    top: 0;
+    margin-left: 4%;
+    margin-bottom: 3px;
+    background-color: transparent;
+}
+.totalAmount {
+    display: inline-block;
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-bottom: 2px;
+    float: right;
+    margin-right: 5%;
+}
+.addressCheckout {
+    display: table;
+    margin: 0 auto;
+    margin-top: 8%;
+    width: 75%;
+    height: 18vh;
+    background-color: white;
+    border-radius: 15px 15px 0 0;
+}
+.addressCheckout span {
+    display: table;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    color: #00308f;
+    font-weight: bold;
+}
+.addressCheckout textarea {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 68%;
+    margin-top: 3%;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow-y: scroll;
+    color: #000000;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 3%;
+    padding-left: 3%;
+    padding-top: 3%;
+}
+.addressCheckout textarea::placeholder {
+    color: #000000;
+    font-size: 13px;
+    font-weight: bold;
+}
+.paymentMethod {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 20%;
+    background-color: white;
+}
+.paymentMethod span {
+    display: flex;
+    margin: auto;
+    margin-left: 4%;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: solid black 0.3px;
+    padding: 0;
+}
+.paymentMethod span span {
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+}
+.paymentMethodText {
+    position: absolute;
+    display: block;
+    margin: auto;
+    background-color: transparent;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00308f;
+}
+.paymentButton {
+    position: absolute;
+    display: block;
+    left: 0; right: 0;
+    margin: auto;
+    bottom: 4%;
+    width: 43%;
+    height: 40px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #6cb4ee;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}

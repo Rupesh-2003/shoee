@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.outerDivYourOrders {
+    /* display: flex; */
+    width: 88%;
+    /* height: auto; */
+    /* border: solid black 1px; */
+    margin: auto;
+    /* background-color: white; */
+    margin-bottom: 30px;
+}
+.headerDiv {
+    width: 100%;
+    height: 90px;
+    background-color: #FFD9D9;
+    border-bottom: solid black 1px;
+}
+.orderNumber {
+    position: absolute;
+    background-color: transparent;
+    margin-top: 12px;
+    margin-left: 19px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+.headerDiv span {
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 19px;
+    margin-top: 40px;
+    color: #808080;
+    /* border: solid black 1px; */
+    background-color: transparent;
+}
+.numberOfItems {
+    position: absolute;
+    font-size: 15px;
+    margin-left: 19px;
+    margin-top: 65px;
+    background-color: transparent;
+    color: #808080;
+    font-weight: bold;
+}
+.totalPriceYourOrders {
+    position: absolute;
+    font-size: 15px;
+    margin-left: 140px;
+    margin-top: 65px;
+    background-color: transparent;
+    color: #808080;
+    font-weight: bold;
+}
+.productListYourOrders {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+.particularProductOfYourOrders {
+    /* position: relative; */
+    width: 100%;
+    height: 120px;
+    background-color: white;
+    /* border: solid black 1px; */
+    border-bottom: solid black 1px;
+}
+.productImageYourOrders {
+    width: 35%;
+    height: 90%;
+    transform: rotate(-18deg);
+    /* border: solid black 1px; */
+    background-color: transparent;
+}
+.brandYourOrders {
+    display: inline;
+    position: absolute;
+    margin-left: 8%;
+    margin-top: 2%;
+    font-size: 22px;
+    /* font-weight: bold; */
+    background-color: transparent;
+}
+.modelYourOrders {
+    display: inline;
+    position: absolute;
+    margin-top: 9%;
+    margin-left: 8%;
+    background-color: transparent;
+    color: #808080;
+}
+.priceYourOrders {
+    display: inline;
+    float: right;
+    margin-top: 5px;
+    margin-right: 3%;
+    background-color: transparent;
+    color: #808080;
+    font-size: 18px;
+    font-weight: bold;
+    /* font-family: 'Poppins', sans-serif; */
+}
+.sizeTextYourOrders {
+    display: inline;
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 8%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #808080;
+    background-color: transparent;
+    /* border: solid black 1px; */
+}
+.sizeYourOrders {
+    display: inline;
+    position: absolute;
+    margin-top: 70px;
+    right: 25%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #808080;
+    /* border: solid black 1px; */
+    background-color: transparent;
+}
+.deliveryTextYourOrders {
+    display: inline;
+    position: absolute;
+    margin-top: 94px;
+    margin-left: 8%;
+    color: #808080;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+}
+.deliveryYourOrders {
+    display: inline;
+    position: absolute;
+    margin-top: 94px;
+    right: 16%;
+    color: #808080;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+}
+.lastDivYourOrders {
+    width: 100%;
+    height: 35px;
+    background-color: white;
+    align-content: center;
+    text-align: center;
+}
+.lastDivYourOrders div {
+    display: block;
+    margin: auto;
+    padding-top: 7px;
+    background-color: transparent;
+}
+.lastDivYourOrders div span {
+    margin-right: 10px;
+    background-color: transparent;
+}
+.lastDivYourOrders div img {
+    position: absolute;
+    width: 25px;
+    margin-top: -2px;
+    background-color: transparent;
+}

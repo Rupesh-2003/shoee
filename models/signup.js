@@ -7,7 +7,8 @@ const signup = new Schmea({
     mobile : {type: Number, required: true},
     password : {type: String, required: true},
     liked: [{type: Number, required: true}],
-    cart: [{type: Object, required: true}]
+    cart: [{type: Object, required: true}],
+    yourOrders: [{type: Object, required: true}]
 })
 
 module.exports = mongoose.model('User', signup)

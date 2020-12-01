@@ -144,7 +144,7 @@ const SignUp = () => {
             <NavLink to="/home">
                 <div className="store-name">Shoe</div>
             </NavLink>           
-            <text className="name">Name</text>
+            <span className="name">Name</span>
             <input className="name-input" 
                 type="text" 
                 onChange={nameHandler}
@@ -160,7 +160,7 @@ const SignUp = () => {
                     alt="inputWrong"
                     />)}
             </div>}
-            <text className="mobile">Mobile No.</text>
+            <span className="mobile">Mobile No.</span>
             <input className="mobile-input" 
                 type="number" 
                 onChange={numberHandler}
@@ -176,7 +176,7 @@ const SignUp = () => {
                     alt="inputWrong"
                     />)}
             </div>}
-            <text className="password">Password</text>
+            <span className="password">Password</span>
             <input className="password-input" 
                 type="password" 
                 onChange={passwordHandler}

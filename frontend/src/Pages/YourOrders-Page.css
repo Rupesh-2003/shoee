@@ -1,0 +1,30 @@
+.backArrowYourOrders {
+    /* position: absolute; */
+    width: 8.2%;
+    height: 3.5%;
+    margin-left: 5%;
+    margin-top: 2%;    
+    -webkit-transform: rotate(180deg);
+}
+.headingYourOrders {
+    /* position: absolute; */
+    display: block;
+    margin-top: 0%;
+    margin-left: 5%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 33px;
+    font-weight: bold;
+    color: #696969;
+    /* border: solid black 1px; */
+    padding: 0;
+}
+.yourOrdersList {
+    position: relative;
+    margin-top: 3%;
+    /* width: 88%;
+    height: 20px; */
+    /* border: solid black 1px; */
+    list-style: none;
+    padding: 0;
+    background-color: transparent;
+}

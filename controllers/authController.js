@@ -3,6 +3,8 @@ const fast2sms = require('fast-two-sms')
 
 const Signup = require('../models/signup')
 const Verification = require('../models/verification')
+const { v4 : uuidv4, v4 } = require('uuid');
+const stripe = require('stripe')("sk_test_51HoqxpBwubh9L4b5ZaBhrqwHqqlRvNe2TYVW3yvpaC1oJSJhi1y3fzrZBNX0yQHNlXOTK3gEaTn4FmTZgTCNcZ0N00aiya0RyZ")
 
 const signup = async (req, res, next) => {
 
@@ -32,7 +34,8 @@ const signup = async (req, res, next) => {
         mobile,
         password: hashedPass,
         liked: [],
-        cart: []
+        cart: [],
+        yourOrders: []
     })
 
     var min = 1000;
@@ -93,7 +96,13 @@ const login = async (req, res, next) => {
 
     try {
         if(await bcrypt.compare(password, isMobileRegistered.password)) {
-            res.status(200).json({message: 'Logged In', name: isMobileRegistered.name})
+            res.status(200).json({
+                message: 'Logged In', 
+                name: isMobileRegistered.name,
+                likedProducts: isMobileRegistered.liked,
+                cartProducts: isMobileRegistered.cart,
+                listOfYourOrders: isMobileRegistered.yourOrders
+            })
             return 
         }
         else {
@@ -285,6 +294,95 @@ const changeSize = async (req, res, body) => {
 
 }
 
+const payment = async (req, res, next) => {
+
+    const {product , token, customerNo} = req.body
+    const idempotencyKey = uuidv4()
+
+    const user = await Signup.findOne({ mobile: customerNo })
+
+    if(!user) {
+        res.status(400).json({ message: "User not found. Payment Cancelled"})
+        return
+    }
+
+    let productList = []
+    product.map(p => {
+        let newProduct = {}
+        newProduct.name = p.brand+ " "+ p.model
+        newProduct.price = p.amount
+        newProduct.size = p.size
+        productList.push(newProduct)
+    })
+
+    //for adding orderDate and deliveryDate to the product
+    let orderDate = new Date()
+    let deliveryDate = new Date(orderDate)
+    deliveryDate.setDate(orderDate.getDate() + 3)
+    product.map(p => {
+        p.orderDate = orderDate ; 
+        p.deliveryDate = deliveryDate;
+    })
+
+    //for calculating total price
+    // let total = 0
+    // product.forEach(function(item) {
+    //     total += item.price
+    // })
+
+    let description = []
+    productList.map(product => {
+        description.push(" Purchase of "+ product.name+ " of size "+ product.size)
+    })
+
+    return stripe.customers.create({
+        email: token.email,
+        source: token.id
+    })
+    .then(customer => {
+        stripe.charges.create({
+            amount: 1 * 100,
+            currency: 'inr',
+            customer: customer.id,
+            description: description.toString(),
+            // shipping: {
+            //     name: token.card.name,
+            //     address: {
+            //         line1: token.card.address_line1,
+            //         line2: token.card.address_line2,
+            //         city: token.card.address_city,
+            //         postal_code: token.card.address_zip
+            //     },
+            //     phone: customerNo
+            // }
+        }, {idempotencyKey})
+    })
+    .then(async result => {
+        await user.yourOrders.push(product)
+        user.save()
+        res.status(200).json({ message: "Payment Successful" }) 
+    })
+    .catch(error => console.log(error))
+}
+
+const listOfYourOrders = async (req, res, next) => {
+    const { mobile } = req.body
+
+    const user = await Signup.findOne({ mobile: mobile })
+
+    if(!user) {
+        res.status(400).json({ message: "User not found"})
+        return
+    }
+
+    if(user.yourOrders.length === 0) {
+        res.status(200).json({ message: "No orders till now", listOfYourOrders : []})
+        return
+    }
+
+    res.status(200).json({ listOfYourOrders : user.yourOrders })
+}
+
 exports.signup = signup
 exports.login = login
 exports.verification = verification
@@ -295,3 +393,5 @@ exports.addToCart = addToCart
 exports.removeFromCart = removeFromCart
 exports.listOfCartProducts = listOfCartProducts
 exports.changeSize = changeSize
+exports.payment = payment
+exports.listOfYourOrders = listOfYourOrders

@@ -1,0 +1,29 @@
+.liCheckoutPage {
+    display: flex;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: transparent;
+}
+.sr {
+    display: inline-block;
+    position: absolute;
+    margin-left: 3%;
+    background-color: transparent;
+}
+.itemNameCheckoutItem {
+    display: inline-block;
+    margin-left: 19%;
+    background-color: transparent;
+}
+.sizeCheckoutPage {
+    display: inline-block;
+    position: absolute;
+    background-color: transparent;
+    margin-left: 54%;
+}
+.priceCheckoutPage {
+    display: inline-block;
+    position: absolute;
+    background-color: transparent;
+    margin-left: 64%;
+}

@@ -24,4 +24,8 @@ Router.post('/listOfCartProducts', AuthController.listOfCartProducts)
 
 Router.post('/changeSize', AuthController.changeSize)
 
+Router.post('/payment', AuthController.payment)
+
+Router.post('/listOfYourOrders', AuthController.listOfYourOrders)
+
 module.exports = Router

@@ -94,56 +94,18 @@ const Login = () => {
                 throw new Error(data.message)
             }
 
+            let likeProducts = []
+            for(let i=0; i<data.likedProducts.length; i++) {
+                let element = data.likedProducts[i]
+                likeProducts.push(PRODUCTS_HOME.find(product => product.productId === element))
+            }
+                
             auth.login()
             auth.setMobile(formState.mobile)
             auth.setName(data.name)
-
-            try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/listOfLikedProducts`, {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        mobile: formState.mobile
-                    })
-                })
-                const data = await response.json()
-                if(!response.ok) {
-                    throw new Error(data.message)
-                }
-
-                let temp = []
-
-                for(let i=0; i<data.likedProducts.length; i++) {
-                    let element = data.likedProducts[i]
-                    temp.push(PRODUCTS_HOME.find(product => product.productId === element))
-                }
-
-                auth.setLiked(temp)
-            } catch(err) {
-                console.log(err)
-            }
-
-            try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/listOfCartProducts`, {
-                    method: "POST",
-                    headers: {
-                        'Content-type' : 'application/json'
-                    },
-                    body: JSON.stringify({
-                        mobile: formState.mobile
-                    })
-                })
-                const data = await response.json()
-                if(!response.ok) {
-                    throw new Error(data.message)
-                }
-                auth.setCart(data.cartProducts)
-
-            } catch(err) {
-                console.log(err)
-            }
+            auth.setLiked(likeProducts)
+            auth.setCart(data.cartProducts)
+            auth.setYourOrders(data.listOfYourOrders)
 
             history.push("/home")
         } catch(error) {
@@ -173,9 +135,9 @@ const Login = () => {
     return (
         <div>
             <NavLink to="/home">
-                <text className="store-name">Shoe</text>
+                <span className="store-name">Shoe</span>
             </NavLink>
-            <text className="mobil">Mobile No.</text>
+            <span className="mobil">Mobile No.</span>
             <input className="mobil-input" 
                 type="number"
                 onChange={numberHandler}
@@ -191,7 +153,7 @@ const Login = () => {
                     alt="inputWrong"
                     />)}
             </div>}
-            <text className="passwor">Password</text>
+            <span className="passwor">Password</span>
             <input className="passwor-input" 
                 type="password"
                 onChange={passwordHandler}

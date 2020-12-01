@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import './Cart-Page.css'
 import ProductListCartPage from '../Lists/ProductListCartPage'
+import { AuthContext } from "../contexts/auth-context"
 import { useHistory } from 'react-router-dom'
 
 const CartPage = () => {
+    const auth = useContext(AuthContext)
     let history = useHistory()
 
     const onGoBackHandler = () => {
@@ -12,6 +14,9 @@ const CartPage = () => {
     }
 
     const onCheckoutClickHandler = () => {
+        // console.log(auth.cart)
+        auth.setBuy(auth.cart)
+        // console.log(auth.buy)
         history.push('/checkout')
     }
 

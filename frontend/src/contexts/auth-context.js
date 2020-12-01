@@ -14,5 +14,9 @@ export const AuthContext = createContext({
     setCart: () => {},
     warning: false,
     setWarning: () => {},
-    removeWarning: () => {}
+    removeWarning: () => {},
+    buy: [],
+    setBuy: () => {},
+    yourOrders : [],
+    setYourOrders: () => {}
 });

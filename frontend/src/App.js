@@ -21,6 +21,8 @@ const App = () => {
   const [liked, setLikedlist] = useState([])
   const [cart, setCartList] = useState([])
   const [warning, changeWarning] = useState(false)
+  const [buy, setBuyNow] = useState([])
+  const [yourOrders, setOrders] = useState([])
 
   const login = useCallback(() => {
     setIsLoggedIn(true)
@@ -57,6 +59,14 @@ const App = () => {
     changeWarning(false)
   }, [])
   
+  const setBuy = useCallback((array) => {
+    setBuyNow(array)
+  }, [])
+
+  const setYourOrders = useCallback((array) => {
+    setOrders(array)
+  })
+
   let routes ;  
 
   if(isLoggedIn) {
@@ -95,6 +105,12 @@ const App = () => {
         <Route path="/product/:productId" exact>
           <ParticularProduct/>
         </Route>
+        {/* <Route path="/checkout" exact>
+          <ChekoutPage/>
+        </Route> */}
+        {/* <Route path="/yourOrders" exact>
+          <YourOrderPage/>
+        </Route> */}
         <Route path="/login" exact>
           <LoginPage/>
         </Route>
@@ -103,6 +119,9 @@ const App = () => {
         </Route>
         <Route path="/about" exact>
           <AboutPage/>
+        </Route>
+        <Route path="/checkout" exact>
+          <Redirect to="/signup" exact/>
         </Route>
         <Route path="/:page" exact>
           <HomePage/>
@@ -129,7 +148,12 @@ const App = () => {
         setCart: setCart,
         warning: warning,
         setWarning: setWarning,
-        removeWarning: removeWarning }}>
+        removeWarning: removeWarning,
+        buy: buy,
+        setBuy: setBuy,
+        yourOrders: yourOrders,
+        setYourOrders: setYourOrders
+        }}>
       <Router>
         {routes}
       </Router>
