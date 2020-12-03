@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { useHistory } from 'react-router-dom'
+
 import './ProductListCartPage.css'
 import ProductItem from '../ListItems/ProductItemCartPage'
 
@@ -34,6 +36,7 @@ import ProductItem from '../ListItems/ProductItemCartPage'
 // ]
 
 const ProductListCartPage = props => {
+    const history = useHistory()
 
     const [cartList, setCartList] = useState(JSON.parse(sessionStorage.getItem('cart')))
 

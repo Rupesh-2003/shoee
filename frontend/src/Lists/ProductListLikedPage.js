@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import './ProductListLikedPage.css'
 import ProductItemLikedPage from '../ListItems/ProductItemLikedPage'
 
 const ProductListLikedPage = () => {
+    const history = useHistory()
     const [wishlist, setWishlist] = useState(JSON.parse(sessionStorage.getItem('wishlist')))
 
     let num = 1;
