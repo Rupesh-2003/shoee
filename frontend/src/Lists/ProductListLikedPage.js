@@ -58,7 +58,7 @@ const ProductListLikedPage = () => {
                 <div className="noOrdersDiv">
                 <span>No Product in WishList yet !</span>
                 <div>You haven't wishlisted anything from shoee yet.Click the button below to browse products</div>
-                <img src="/images/browseProducts.svg" alt="browseProductsIcon"/>
+                <img src="/images/browseProducts.svg" alt="browseProductsIcon" onClick={() => history.push('/home')}/>
              </div>   
             }
         </ul>

@@ -97,7 +97,8 @@ const ProductListCartPage = props => {
                              to cart yet.
                              Click the button below to see products</div>
                         <img src="/images/browseProducts.svg"
-                            alt="orderNowIcon"/>
+                            alt="orderNowIcon"
+                            onClick={() => history.push('/home')}/>
                     </div>
                 }
         </ul>
