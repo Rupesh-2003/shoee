@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import HomePage from './Pages/Home-Page'
@@ -15,57 +15,7 @@ import { AuthContext } from './contexts/auth-context'
 
 const App = () => {
   
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [name, setUserName] = useState("")
-  const [mobile, setMobile] = useState(0)
-  const [liked, setLikedlist] = useState([])
-  const [cart, setCartList] = useState([])
-  const [warning, changeWarning] = useState(false)
-  const [buy, setBuyNow] = useState([])
-  const [yourOrders, setOrders] = useState([])
-
-  const login = useCallback(() => {
-    setIsLoggedIn(true)
-  }, []);
-
-  const logout = useCallback(() => {
-    setIsLoggedIn(false)
-    setCartList([])
-    setLikedlist([])
-    setMobile(0)
-  }, []);
-
-  const setName = useCallback((name) => {
-    setUserName(name)
-  }, []);
-
-  const setMobileNumber = useCallback((mobile) => {
-    setMobile(mobile)
-  }, [])
-
-  const setLiked = useCallback((array) => {
-    setLikedlist(array)
-  }, [])
-
-  const setCart = useCallback((array) => {
-    setCartList(array)
-  }, [])
-
-  const setWarning = useCallback((message) => {
-    changeWarning(message)
-  }, [])
-
-  const removeWarning = useCallback(() => {
-    changeWarning(false)
-  }, [])
-  
-  const setBuy = useCallback((array) => {
-    setBuyNow(array)
-  }, [])
-
-  const setYourOrders = useCallback((array) => {
-    setOrders(array)
-  })
+  const [warning, setWarning] = useState(false)
 
   let routes ;  
 
@@ -105,12 +55,6 @@ const App = () => {
         <Route path="/product/:productId" exact>
           <ParticularProduct/>
         </Route>
-        {/* <Route path="/checkout" exact>
-          <ChekoutPage/>
-        </Route> */}
-        {/* <Route path="/yourOrders" exact>
-          <YourOrderPage/>
-        </Route> */}
         <Route path="/login" exact>
           <LoginPage/>
         </Route>
@@ -119,9 +63,6 @@ const App = () => {
         </Route>
         <Route path="/about" exact>
           <AboutPage/>
-        </Route>
-        <Route path="/checkout" exact>
-          <Redirect to="/signup" exact/>
         </Route>
         <Route path="/:page" exact>
           <HomePage/>
@@ -134,26 +75,7 @@ const App = () => {
   return (
     
     <AuthContext.Provider
-      value={{ 
-        isLoggedIn: isLoggedIn, 
-        login: login, 
-        logout: logout,
-        name: name,
-        setName: setName,
-        mobile: mobile, 
-        setMobile: setMobileNumber, 
-        liked: liked, 
-        setLiked: setLiked,
-        cart: cart,
-        setCart: setCart,
-        warning: warning,
-        setWarning: setWarning,
-        removeWarning: removeWarning,
-        buy: buy,
-        setBuy: setBuy,
-        yourOrders: yourOrders,
-        setYourOrders: setYourOrders
-        }}>
+      value={{ warning: warning, setWarning: setWarning}}>
       <Router>
         {routes}
       </Router>

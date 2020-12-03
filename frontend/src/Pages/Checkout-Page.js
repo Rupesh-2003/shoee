@@ -1,22 +1,21 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import './Checkout-Page.css'
 import CheckoutItem from '../ListItems/ProductItemCheckout'
-import { AuthContext } from '../contexts/auth-context'
 import StripeCheckout from 'react-stripe-checkout'
 
 const Checkout = () => {
-    const auth = useContext(AuthContext)
 
-    const [buy, setBuy] = useState(JSON.parse(sessionStorage.getItem('buy')))
+    const buy = JSON.parse(sessionStorage.getItem('buy'))
+    const [loading, setLoading] = useState(false)
 
     const history  = useHistory()
     var itemNo = 0
     var subTotal = 0
 
     const makePayment = async token => {
-
+        setLoading(true)
         try {
             const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/payment`, {
                 method: "POST",
@@ -33,6 +32,7 @@ const Checkout = () => {
             if(!response.ok) {
                 throw new Error(data.message)
             }
+            sessionStorage.setItem('cart', JSON.stringify([]))
 
             try {
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/listOfYourOrders`, {
@@ -41,7 +41,7 @@ const Checkout = () => {
                         'Content-type' : 'application/json'
                     },
                     body: JSON.stringify({
-                        mobile: sessionStorage.getItem('buy')
+                        mobile: sessionStorage.getItem('mobile')
                     })
                 })
                 const data = await response.json()
@@ -53,7 +53,7 @@ const Checkout = () => {
             } catch(error) {
                 console.log(error)
             }
-
+            setLoading(false)
             history.push('/yourOrders')
         }catch(error) {
             console.log(error)
@@ -62,6 +62,7 @@ const Checkout = () => {
 
     return (
         <div>
+        {!loading && <div>
             <div className="totalDiv">
                 <span>Total</span>
                 <div className="line"></div>
@@ -98,8 +99,9 @@ const Checkout = () => {
                 <div className="paymentMethodText">Pay by Card</div>
             </div>
             <StripeCheckout 
-                stripeKey="pk_test_51HoqxpBwubh9L4b5hKOKMZvcHRI9WbQkoKVrUv9NhdYEuNWGGbv3ENZFNRIbtRUFu0YMhBweJJo0RXryf4HU1bxr00NvFGi232"
+                stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
                 name="Shoee"
+                description="This is not a real store. Please do not enter your Real card details.Instead use 4242424242424242"
                 amount = {100}
                 token = {makePayment}
                 // shippingAddress
@@ -107,6 +109,8 @@ const Checkout = () => {
                 currency="INR">
                 <button className="paymentButton">Pay Rs. 1</button>
             </StripeCheckout>
+        </div>}
+        {loading && <div class="spinner loading"></div>}
         </div>
     )
 }

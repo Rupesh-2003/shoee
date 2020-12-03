@@ -1,19 +1,14 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useParams, NavLink, useHistory } from 'react-router-dom'
 
 import './Verification-Page.css'
 import ErrorModal from '../Navigation/ErrorModal'
-import { AuthContext } from '../contexts/auth-context'
 
 const Verification = () => {
     let history = useHistory()
 
-    const auth = useContext(AuthContext)
-
     const mobileNumber = useParams().mobile
-
     const [ error, setError ] = useState()
-
     const [otp, setOtp] = useState(new Array(4).fill(""))
 
     const handleChange = (element, index) => {
@@ -46,11 +41,7 @@ const Verification = () => {
             if(!response.ok) {
                 throw new Error(data.message)
             }
-            
-            // auth.login()
-            // auth.setName(data.name)
-            // auth.setMobile(mobileNumber)
-
+           
             sessionStorage.setItem('isLoggedIn', 'true')
             sessionStorage.setItem('name', data.name)
             sessionStorage.setItem('mobile', mobileNumber)

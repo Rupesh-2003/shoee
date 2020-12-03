@@ -54,7 +54,7 @@ const ProductListLikedPage = () => {
                     removeLike ={removeLike}
                 />
             })}
-            {wishlist !== null || wishlist.length === 0 && 
+            {wishlist === null || wishlist.length === 0 && 
                 <div className="noOrdersDiv">
                 <span>No Product in WishList yet !</span>
                 <div>You haven't wishlisted anything from shoee yet.Click the button below to browse products</div>

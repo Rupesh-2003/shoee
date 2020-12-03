@@ -4,7 +4,7 @@ const fast2sms = require('fast-two-sms')
 const Signup = require('../models/signup')
 const Verification = require('../models/verification')
 const { v4 : uuidv4, v4 } = require('uuid');
-const stripe = require('stripe')("sk_test_51HoqxpBwubh9L4b5ZaBhrqwHqqlRvNe2TYVW3yvpaC1oJSJhi1y3fzrZBNX0yQHNlXOTK3gEaTn4FmTZgTCNcZ0N00aiya0RyZ")
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 const signup = async (req, res, next) => {
 

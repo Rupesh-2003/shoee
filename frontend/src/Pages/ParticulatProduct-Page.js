@@ -9,11 +9,10 @@ const ParticularProduct = () => {
     let history = useHistory()
     const auth = useContext(AuthContext)
     const requiredProductId = useParams().productId
+
     let initialSize 
-
-    const [warning, setWarning] = useState(false)
-
     let temp
+    
     if(JSON.parse(sessionStorage.getItem('isLoggedIn')) && JSON.parse(sessionStorage.getItem('cart')) !== null) {
         temp = JSON.parse(sessionStorage.getItem('cart')).some(p => p.productId == requiredProductId ? initialSize = p.size: initialSize = initialSize)
     }
@@ -23,8 +22,7 @@ const ParticularProduct = () => {
     const requiredProduct = PRODUCTS_HOME.find(p => p.productId == requiredProductId)
 
     const onRemoveWarningHandler = () => {
-        // sessionStorage.setItem('warning', 'false')
-        setWarning(false)
+        auth.setWarning(false)
     }
 
     const isSizeSelected = () => {
@@ -38,22 +36,16 @@ const ParticularProduct = () => {
     }
 
     const addToCartHandler = async () => {
-        // // auth.setWarning(false)
-        // sessionStorage.setItem('warning', 'false')
-        setWarning(false)
-
+        auth.setWarning(false)
+        
         if(!JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
-            // auth.setWarning('Warning: Please Login first!')
-            // sessionStorage.setItem('warning', 'Warning: Please Login first!')
-            setWarning('Warning: Please Login first!')
+            auth.setWarning('Warning: Please Login first!')
         }
         else {
             if(!isAddedToCart) {
                 const size = isSizeSelected()
                 if(!size) {
-                    // auth.setWarning('Warning: Please select size!')
-                    // sessionStorage.setItem('warning', 'Warning: Please select size!')
-                    setWarning('Warning: Please select size!')
+                    auth.setWarning('Warning: Please select size!')
                     return
                 }
                 requiredProduct.size = size
@@ -64,7 +56,6 @@ const ParticularProduct = () => {
                             'Content-Type' : 'application/json'
                         },
                         body: JSON.stringify({
-                            // mobile: auth.mobile,
                             mobile: sessionStorage.getItem('mobile'),
                             userCartProduct : requiredProduct
                         })
@@ -72,7 +63,6 @@ const ParticularProduct = () => {
                     if(response.ok) {
                         let newCartList = JSON.parse(sessionStorage.getItem('cart'))
                         newCartList.push(requiredProduct)
-                        // auth.setCart(newCartList)
                         sessionStorage.setItem('cart',JSON.stringify(newCartList))
                         setIsAddedToCart(true)
                         console.log("added successfully")
@@ -94,14 +84,11 @@ const ParticularProduct = () => {
         else{
             if(isSizeSelected()) {
                 requiredProduct.size = isSizeSelected()
-                // auth.setBuy([requiredProduct])
                 sessionStorage.setItem('buy', JSON.stringify([requiredProduct]))
                 history.push('/checkout')
             }
             else 
-                // auth.setWarning('Warning: Please select size!')
-                // sessionStorage.setItem('warning', 'Warning: Please select size!')
-                setWarning('Warning: Please select size!')
+                auth.setWarning('Warning: Please select size!')
         }
     }
 
@@ -111,14 +98,14 @@ const ParticularProduct = () => {
 
     return (
         <div className="container-product">
-            {warning &&
+            {auth.warning &&
                 <div className="alert showAlert">
                     <img className="exclamation"
                         src="/images/exclamation.svg"
                         width="100%"
                         height="100%"
                         alt="exclamationMark"/>
-                    <span className="msg">{warning}</span>
+                    <span className="msg">{auth.warning}</span>
                     <div className="close-btn">
                         <img src="/images/close.svg"
                             width="100%"

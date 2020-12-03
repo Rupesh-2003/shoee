@@ -1,5 +1,5 @@
-import React, { useEffect, useReducer, useState, useContext } from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import React, { useEffect, useReducer, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import './Login-Page.css'
 import { 
@@ -7,7 +7,6 @@ import {
     VALIDATOR_MINLENGTH, 
     VALIDATOR_MOBILE } from '../Navigation/validators'
 import ErrorModal from '../Navigation/ErrorModal'
-import { AuthContext } from '../contexts/auth-context'
 import { PRODUCTS_HOME } from './Products-home'
 
 const reducer = (state, action) => {
@@ -36,10 +35,6 @@ const reducer = (state, action) => {
 }
 
 const Login = () => {
-    let history = useHistory()
-
-    const auth = useContext(AuthContext)
-
     const [ error, setError ] = useState(false)
 
     const [formState, dispatch] = useReducer(reducer, {

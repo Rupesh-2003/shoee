@@ -1,15 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, {  useState } from 'react'
 
 import './Cart-Page.css'
 import ProductListCartPage from '../Lists/ProductListCartPage'
-import { AuthContext } from "../contexts/auth-context"
 import { useHistory } from 'react-router-dom'
 
 const CartPage = () => {
 
     const [cartList, setCartList] = useState(JSON.parse(sessionStorage.getItem('cart')))
 
-    const auth = useContext(AuthContext)
     let history = useHistory()
 
     const reload = () => {

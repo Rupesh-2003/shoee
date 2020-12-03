@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import './ProductListCartPage.css'
 import ProductItem from '../ListItems/ProductItemCartPage'
-import { AuthContext } from '../contexts/auth-context'
 
 // const DUMMY_ARRAY = [
 //     {   
@@ -38,7 +37,6 @@ const ProductListCartPage = props => {
 
     const [cartList, setCartList] = useState(JSON.parse(sessionStorage.getItem('cart')))
 
-    const auth = useContext(AuthContext)
     let num = 1;
 
     const giveNumber = () => {

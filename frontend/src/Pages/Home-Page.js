@@ -6,7 +6,8 @@ import OptionBar from '../Navigation/OptionBar'
 import ProductsHome from './Products-home'
 import { AuthContext } from '../contexts/auth-context'
 
-const HomePage = () => {
+const HomePage = () => {   
+
     if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
         console.log('logged In')
     } else {
@@ -16,7 +17,7 @@ const HomePage = () => {
     const auth = useContext(AuthContext)
 
     const onRemoveWarningHandler = () => {
-        auth.removeWarning()
+        auth.setWarning(false)
     }
 
     return (

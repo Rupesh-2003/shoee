@@ -1,15 +1,11 @@
-import React, { useContext, useState } from 'react' 
+import React, { useState } from 'react' 
 import { NavLink } from "react-router-dom"
 
 import './ProductItemCartPage.css'
-import { AuthContext } from '../contexts/auth-context'
 
 const ProductItemCartPage = props => {
 
     const [size, setSize] = useState(props.size)
-
-    const auth = useContext(AuthContext)
-
     const temp = props.sidebarColor
 
     const increaseSizeHandler = async () => {
@@ -86,49 +82,49 @@ const ProductItemCartPage = props => {
         }
     }
 
-    const changeSize = async (method) => {
-        let cartList = JSON.parse(sessionStorage.getItem('cart'))
-        const selectedProduct = cartList.find(p => p.productId === props.productId)
-        const selectedProductIndex = cartList.findIndex(p => p.productId === props.productId)
-        let newCartList = cartList.filter(p => p.productId != props.productId)
-        let tempSize     
+    // const changeSize = async (method) => {
+    //     let cartList = JSON.parse(sessionStorage.getItem('cart'))
+    //     const selectedProduct = cartList.find(p => p.productId === props.productId)
+    //     const selectedProductIndex = cartList.findIndex(p => p.productId === props.productId)
+    //     let newCartList = cartList.filter(p => p.productId != props.productId)
+    //     let tempSize     
 
-        if(method === 'increase') 
-            selectedProduct.size = tempSize = size+1
-        else
-            selectedProduct.size = tempSize = size-1
+    //     if(method === 'increase') 
+    //         selectedProduct.size = tempSize = size+1
+    //     else
+    //         selectedProduct.size = tempSize = size-1
 
-        newCartList.splice(selectedProductIndex, 0, selectedProduct)
-        sessionStorage.setItem('cart', JSON.stringify(newCartList))
-        setSize(tempSize)
+    //     newCartList.splice(selectedProductIndex, 0, selectedProduct)
+    //     sessionStorage.setItem('cart', JSON.stringify(newCartList))
+    //     setSize(tempSize)
 
-        try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/changeSize`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    mobile: sessionStorage.getItem('mobile'),
-                    productId: props.productId,
-                    size: tempSize
-                })
-            })
-            if(!response.ok) {
-                if(method === 'increase') 
-                    tempSize = tempSize - 1
-                else  
-                    tempSize = tempSize + 1
+    //     try {
+    //         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/changeSize`, {
+    //             method: "POST",
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({
+    //                 mobile: sessionStorage.getItem('mobile'),
+    //                 productId: props.productId,
+    //                 size: tempSize
+    //             })
+    //         })
+    //         if(!response.ok) {
+    //             if(method === 'increase') 
+    //                 tempSize = tempSize - 1
+    //             else  
+    //                 tempSize = tempSize + 1
 
-                selectedProduct.size = tempSize
-                newCartList.splice(selectedProductIndex, 0, selectedProduct)
-                sessionStorage.setItem('cart', JSON.stringify(newCartList))
-                setSize(tempSize)    
-            }
-        } catch(err) {
-            console.log(err)
-        }
-    }
+    //             selectedProduct.size = tempSize
+    //             newCartList.splice(selectedProductIndex, 0, selectedProduct)
+    //             sessionStorage.setItem('cart', JSON.stringify(newCartList))
+    //             setSize(tempSize)    
+    //         }
+    //     } catch(err) {
+    //         console.log(err)
+    //     }
+    // }
 
     
 
