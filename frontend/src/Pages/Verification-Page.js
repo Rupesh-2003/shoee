@@ -45,6 +45,9 @@ const Verification = () => {
             sessionStorage.setItem('isLoggedIn', 'true')
             sessionStorage.setItem('name', data.name)
             sessionStorage.setItem('mobile', mobileNumber)
+            sessionStorage.setItem('wishlist', JSON.stringify([]))
+            sessionStorage.setItem('cart', JSON.stringify([]))
+            sessionStorage.setItem('yourOrders', JSON.stringify([]))
             
             history.push("/home")
         }catch(err) {

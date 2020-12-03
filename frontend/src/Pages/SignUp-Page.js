@@ -125,15 +125,18 @@ const SignUp = () => {
                     password: formState.password
                 })
             })
+            console.log("response received")
             const data = await response.json()
         
+            console.log(response.status)
+            console.log(data.message)
             if(!response.ok) {
                 setError(data.message)
                 return
             }
 
             history.push(formState.mobile+"/verification")
-        }catch(err) {
+        } catch(err) {
             console.log(err)
         }
 
