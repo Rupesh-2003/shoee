@@ -186,6 +186,7 @@ const removeFromLiked = async (req, res, next) => {
     }
 
     try {
+        
         await User.liked.remove(productId)
         User.save()
         res.status(200).json({message: "Successfully removed from liked"})
@@ -280,8 +281,8 @@ const listOfCartProducts = async (req, res, next) => {
 }
 
 const changeSize = async (req, res, body) => {
+    
     const { mobile, productId, size } = req.body
-
     try{
         await Signup.update(
             {mobile : mobile, 'cart.productId': productId},
