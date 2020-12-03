@@ -1,14 +1,19 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import './ProductList.css'
 import ProductItem from '../ListItems/ProductItem'
-import { AuthContext } from '../contexts/auth-context'
 
 const ProductList = props => {
-    const auth = useContext(AuthContext)
+    const wishlist = JSON.parse(sessionStorage.getItem('wishlist'))
 
     const isLiked = (productId) => {
-        return auth.liked.find(product => product.productId === productId)
+        if(sessionStorage.getItem('isLoggedIn')) {
+            if(wishlist !== null && wishlist.find(product => product.productId === productId)) {
+                return true
+            }
+            return false
+        }
+        return false
     }
 
     return (

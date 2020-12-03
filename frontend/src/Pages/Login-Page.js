@@ -100,14 +100,26 @@ const Login = () => {
                 likeProducts.push(PRODUCTS_HOME.find(product => product.productId === element))
             }
                 
-            auth.login()
-            auth.setMobile(formState.mobile)
-            auth.setName(data.name)
-            auth.setLiked(likeProducts)
-            auth.setCart(data.cartProducts)
-            auth.setYourOrders(data.listOfYourOrders)
+            // auth.login()
+            // auth.setMobile(formState.mobile)
+            // auth.setName(data.name)
+            // auth.setLiked(likeProducts)
+            // auth.setCart(data.cartProducts)
+            // auth.setYourOrders(data.listOfYourOrders)
 
-            history.push("/home")
+            sessionStorage.setItem('isLoggedIn', 'true')
+            sessionStorage.setItem('mobile', formState.mobile)
+            sessionStorage.setItem('name', data.name)
+            sessionStorage.setItem('wishlist', JSON.stringify(likeProducts))
+            sessionStorage.setItem('cart', JSON.stringify(data.cartProducts))
+            sessionStorage.setItem('yourOrders', JSON.stringify(data.listOfYourOrders))
+            // sessionStorage.setItem('warning', 'false')
+
+
+            //because app.js was not updating isLoggedIn value from sessionStorage
+            window.location.href = `/home`
+
+            // history.push("/home")
         } catch(error) {
             setError(error.message)
         }

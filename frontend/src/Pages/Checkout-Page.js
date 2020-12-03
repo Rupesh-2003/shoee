@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import './Checkout-Page.css'
@@ -8,6 +8,9 @@ import StripeCheckout from 'react-stripe-checkout'
 
 const Checkout = () => {
     const auth = useContext(AuthContext)
+
+    const [buy, setBuy] = useState(JSON.parse(sessionStorage.getItem('buy')))
+
     const history  = useHistory()
     var itemNo = 0
     var subTotal = 0
@@ -22,8 +25,8 @@ const Checkout = () => {
                 },
                 body: JSON.stringify({
                     token,
-                    product: auth.buy,
-                    customerNo: auth.mobile
+                    product: JSON.parse(sessionStorage.getItem('buy')),
+                    customerNo: sessionStorage.getItem('mobile')
                 })        
             })
             const data = await response.json()
@@ -38,14 +41,14 @@ const Checkout = () => {
                         'Content-type' : 'application/json'
                     },
                     body: JSON.stringify({
-                        mobile: auth.mobile
+                        mobile: sessionStorage.getItem('buy')
                     })
                 })
                 const data = await response.json()
                 if(!response.ok) {
                     throw new Error(data.message)
                 }
-                auth.setYourOrders(data.listOfYourOrders)
+                sessionStorage.setItem('yourOrders', JSON.stringify(data.listOfYourOrders))
                 
             } catch(error) {
                 console.log(error)
@@ -68,7 +71,7 @@ const Checkout = () => {
                     <div className="priceCheckout">Price</div>
                 <div className="line2"></div>
                 <ul className="checkoutList">
-                    {auth.buy.map(item => {
+                    {buy !== null && buy.length > 0 && buy.map(item => {
                         subTotal += item.amount
                         return <CheckoutItem
                             itemNo = {++itemNo}

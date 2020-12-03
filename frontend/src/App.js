@@ -69,7 +69,7 @@ const App = () => {
 
   let routes ;  
 
-  if(isLoggedIn) {
+  if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
     routes = (
       <Switch>
         <Route path="/about" exact>

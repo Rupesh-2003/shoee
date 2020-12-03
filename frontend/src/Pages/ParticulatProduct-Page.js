@@ -11,14 +11,20 @@ const ParticularProduct = () => {
     const requiredProductId = useParams().productId
     let initialSize 
 
-    const temp = auth.cart.some(p => p.productId == requiredProductId ? initialSize = p.size: initialSize = initialSize)
+    const [warning, setWarning] = useState(false)
 
+    let temp
+    if(JSON.parse(sessionStorage.getItem('isLoggedIn')) && JSON.parse(sessionStorage.getItem('cart')) !== null) {
+        temp = JSON.parse(sessionStorage.getItem('cart')).some(p => p.productId == requiredProductId ? initialSize = p.size: initialSize = initialSize)
+    }
+    
     const [ isAddedToCart, setIsAddedToCart ] = useState(temp)
 
     const requiredProduct = PRODUCTS_HOME.find(p => p.productId == requiredProductId)
 
     const onRemoveWarningHandler = () => {
-        auth.removeWarning()
+        // sessionStorage.setItem('warning', 'false')
+        setWarning(false)
     }
 
     const isSizeSelected = () => {
@@ -32,16 +38,22 @@ const ParticularProduct = () => {
     }
 
     const addToCartHandler = async () => {
-        auth.setWarning(false)
+        // // auth.setWarning(false)
+        // sessionStorage.setItem('warning', 'false')
+        setWarning(false)
 
-        if(!auth.isLoggedIn) {
-            auth.setWarning('Warning: Please Login first!')
+        if(!JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
+            // auth.setWarning('Warning: Please Login first!')
+            // sessionStorage.setItem('warning', 'Warning: Please Login first!')
+            setWarning('Warning: Please Login first!')
         }
         else {
             if(!isAddedToCart) {
                 const size = isSizeSelected()
                 if(!size) {
-                    auth.setWarning('Warning: Please select size!')
+                    // auth.setWarning('Warning: Please select size!')
+                    // sessionStorage.setItem('warning', 'Warning: Please select size!')
+                    setWarning('Warning: Please select size!')
                     return
                 }
                 requiredProduct.size = size
@@ -52,14 +64,16 @@ const ParticularProduct = () => {
                             'Content-Type' : 'application/json'
                         },
                         body: JSON.stringify({
-                            mobile: auth.mobile,
+                            // mobile: auth.mobile,
+                            mobile: sessionStorage.getItem('mobile'),
                             userCartProduct : requiredProduct
                         })
                     })
                     if(response.ok) {
-                        const newCartList = auth.cart
+                        let newCartList = JSON.parse(sessionStorage.getItem('cart'))
                         newCartList.push(requiredProduct)
-                        auth.setCart(newCartList)
+                        // auth.setCart(newCartList)
+                        sessionStorage.setItem('cart',JSON.stringify(newCartList))
                         setIsAddedToCart(true)
                         console.log("added successfully")
                     }
@@ -74,17 +88,20 @@ const ParticularProduct = () => {
     }
 
     const buyNowHandler = () => {
-        if(!auth.isLoggedIn) {
+        if(!JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
             history.push('/login')
         }
         else{
             if(isSizeSelected()) {
                 requiredProduct.size = isSizeSelected()
-                auth.setBuy([requiredProduct])
+                // auth.setBuy([requiredProduct])
+                sessionStorage.setItem('buy', JSON.stringify([requiredProduct]))
                 history.push('/checkout')
             }
             else 
-                auth.setWarning('Warning: Please select size!')
+                // auth.setWarning('Warning: Please select size!')
+                // sessionStorage.setItem('warning', 'Warning: Please select size!')
+                setWarning('Warning: Please select size!')
         }
     }
 
@@ -94,14 +111,14 @@ const ParticularProduct = () => {
 
     return (
         <div className="container-product">
-            {auth.warning &&
+            {warning &&
                 <div className="alert showAlert">
                     <img className="exclamation"
                         src="/images/exclamation.svg"
                         width="100%"
                         height="100%"
                         alt="exclamationMark"/>
-                    <span className="msg">{auth.warning}</span>
+                    <span className="msg">{warning}</span>
                     <div className="close-btn">
                         <img src="/images/close.svg"
                             width="100%"

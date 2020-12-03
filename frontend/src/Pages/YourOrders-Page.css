@@ -28,3 +28,32 @@
     padding: 0;
     background-color: transparent;
 }
+.noOrdersDiv {
+    /* border: black solid 1px; */
+    margin-top: 40%;
+}
+.noOrdersDiv span {
+    display: table;
+    margin: auto;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    /* border: black solid 1px; */
+}
+.noOrdersDiv div {
+    display: table;
+    margin: auto;
+    width: 70%;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #696969;
+    /* border: black solid 1px; */
+    text-align: center;
+}
+.noOrdersDiv img {
+    display: table;
+    margin: auto;
+    margin-top: 20px;
+    /* border: black solid 1px; */
+    /* height: 45px; */
+}

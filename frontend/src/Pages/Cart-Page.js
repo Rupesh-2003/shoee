@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 import './Cart-Page.css'
 import ProductListCartPage from '../Lists/ProductListCartPage'
@@ -6,17 +6,22 @@ import { AuthContext } from "../contexts/auth-context"
 import { useHistory } from 'react-router-dom'
 
 const CartPage = () => {
+
+    const [cartList, setCartList] = useState(JSON.parse(sessionStorage.getItem('cart')))
+
     const auth = useContext(AuthContext)
     let history = useHistory()
+
+    const reload = () => {
+        setCartList(JSON.parse(sessionStorage.getItem('cart')))
+    }
 
     const onGoBackHandler = () => {
         history.goBack()
     }
 
     const onCheckoutClickHandler = () => {
-        // console.log(auth.cart)
-        auth.setBuy(auth.cart)
-        // console.log(auth.buy)
+        sessionStorage.setItem('buy', JSON.stringify(JSON.parse(sessionStorage.getItem('cart'))))
         history.push('/checkout')
     }
 
@@ -32,9 +37,10 @@ const CartPage = () => {
                 My Cart
             </div>
             <div className="ProductListCart">
-                <ProductListCartPage/>
+                <ProductListCartPage
+                reload = {reload}/>
             </div>
-            <div className="total">
+            {JSON.parse(sessionStorage.getItem('cart')).length > 0 && <div className="total">
                 <div className="checkout" onClick={onCheckoutClickHandler}>
                     Proceed to checkout  &nbsp;
                     <img className="procced"
@@ -43,7 +49,7 @@ const CartPage = () => {
                         height="100%"
                         alt="procceedArrow"/>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

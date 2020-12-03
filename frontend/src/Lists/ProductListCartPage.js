@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 import './ProductListCartPage.css'
 import ProductItem from '../ListItems/ProductItemCartPage'
@@ -34,7 +34,10 @@ import { AuthContext } from '../contexts/auth-context'
 //     },
 // ]
 
-const ProductListCartPage = () => {
+const ProductListCartPage = props => {
+
+    const [cartList, setCartList] = useState(JSON.parse(sessionStorage.getItem('cart')))
+
     const auth = useContext(AuthContext)
     let num = 1;
 
@@ -46,9 +49,36 @@ const ProductListCartPage = () => {
         return num++
     }
 
+    const onRemoveFromCartHandler = async (product) => {
+        const newCartList = cartList.filter(p => p.productId != product.productId)
+        sessionStorage.setItem('cart', JSON.stringify(newCartList))
+        setCartList(newCartList)
+        try {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/removeFromCart`, {
+                method: "POST",
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({
+                    mobile: sessionStorage.getItem('mobile'),
+                    productId: product.productId
+                })
+            })
+            if(!response.ok) {
+                newCartList.push(product)
+                sessionStorage.setItem('cart', JSON.stringify(newCartList))
+                setCartList(newCartList)
+            }
+            props.reload()
+
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
     return(
         <ul className="productCartList">
-            {auth.cart.map(product => {
+            {cartList.length > 0 && cartList.map(product => {
                 return (
                     <ProductItem 
                     productId ={product.productId}
@@ -58,9 +88,20 @@ const ProductListCartPage = () => {
                     amount ={product.amount}
                     sidebarColor = {product.sidebarColor}
                     size = {product.size}
-                    color = {giveNumber()}/>   
+                    color = {giveNumber()}
+                    onRemoveFromCartHandler = {onRemoveFromCartHandler}/>   
                 )
             })}
+            {cartList.length === 0 && 
+                    <div className="noOrdersDiv">
+                        <span>Cart is Empty !</span>
+                        <div>You haven't added anything
+                             to cart yet.
+                             Click the button below to see products</div>
+                        <img src="/images/browseProducts.svg"
+                            alt="orderNowIcon"/>
+                    </div>
+                }
         </ul>
     )
 }

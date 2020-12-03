@@ -1,25 +1,29 @@
-import React, { useContext } from 'react' 
+import React, { useContext, useState } from 'react' 
 import { NavLink } from "react-router-dom"
 
 import './ProductItemCartPage.css'
 import { AuthContext } from '../contexts/auth-context'
 
 const ProductItemCartPage = props => {
+
+    const [size, setSize] = useState(props.size)
+
     const auth = useContext(AuthContext)
 
     const temp = props.sidebarColor
 
     const increaseSizeHandler = async () => {
-        if(props.size<10) {
-            const selectedProduct = auth.cart.find(p => p.productId === props.productId)
-            const selectedProductIndex = auth.cart.findIndex(p => p.productId === props.productId)
+        if(size<10) {
+            const selectedProduct = JSON.parse(sessionStorage.getItem('cart')).find(p => p.productId === props.productId)
+            const selectedProductIndex = JSON.parse(sessionStorage.getItem('cart')).findIndex(p => p.productId === props.productId)
                     
-            selectedProduct.size = props.size+1
+            selectedProduct.size = size+1
 
-            const newCartArray = auth.cart.filter(p => p.productId != props.productId )
+            const newCartArray = JSON.parse(sessionStorage.getItem('cart')).filter(p => p.productId != props.productId )
             newCartArray.splice(selectedProductIndex, 0, selectedProduct)
 
-            auth.setCart(newCartArray)
+            sessionStorage.setItem('cart', JSON.stringify(newCartArray))
+            setSize(size+1)
             try {
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/changeSize`, {
                     method: "POST",
@@ -27,18 +31,16 @@ const ProductItemCartPage = props => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        mobile: auth.mobile,
+                        mobile: sessionStorage.getItem('mobile'),
                         productId: props.productId,
-                        size: props.size+1
+                        size: size+1
                     })
                 })
-
                 if(!response.ok) {
                     selectedProduct.size = props.size-1
-
                     newCartArray.splice(selectedProductIndex, 0, selectedProduct)
-
-                    auth.setCart(newCartArray)
+                    sessionStorage.setItem('cart', JSON.stringify(newCartArray))
+                    setSize(size-1)    
                 }
             } catch(err) {
                 console.log(err)
@@ -47,16 +49,17 @@ const ProductItemCartPage = props => {
     }
 
     const decreaseSizeHandler = async () => {
-        if(props.size>6) {
-            const selectedProduct = auth.cart.find(p => p.productId === props.productId)
-            const selectedProductIndex = auth.cart.findIndex(p => p.productId === props.productId)
+        if(size>6) {
+            const selectedProduct = JSON.parse(sessionStorage.getItem('cart')).find(p => p.productId === props.productId)
+            const selectedProductIndex = JSON.parse(sessionStorage.getItem('cart')).findIndex(p => p.productId === props.productId)
                     
-            selectedProduct.size = props.size-1
+            selectedProduct.size = size-1
 
-            const newCartArray = auth.cart.filter(p => p.productId != props.productId )
+            const newCartArray = JSON.parse(sessionStorage.getItem('cart')).filter(p => p.productId != props.productId )
             newCartArray.splice(selectedProductIndex, 0, selectedProduct)
 
-            auth.setCart(newCartArray)
+            sessionStorage.setItem('cart', JSON.stringify(newCartArray))
+            setSize(size-1)
             try {
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/changeSize`, {
                     method: "POST",
@@ -64,45 +67,70 @@ const ProductItemCartPage = props => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        mobile: auth.mobile,
+                        mobile: sessionStorage.getItem('mobile'),
                         productId: props.productId,
-                        size: props.size-1
+                        size: size-1
                     })
                 })
                 if(!response.ok) {
-                    selectedProduct.size = props.size+1
+                    selectedProduct.size = size+1
 
                     newCartArray.splice(selectedProductIndex, 0, selectedProduct)
 
-                    auth.setCart(newCartArray)
+                    sessionStorage.setItem('cart', JSON.stringify(newCartArray))
+                    setSize(size+1)
                 }
             } catch(err) {
-
+                console.log(err)
             }
         }
     }
 
-    const onDeleteHandler = async () => {
+    const changeSize = async (method) => {
+        let cartList = JSON.parse(sessionStorage.getItem('cart'))
+        const selectedProduct = cartList.find(p => p.productId === props.productId)
+        const selectedProductIndex = cartList.findIndex(p => p.productId === props.productId)
+        let newCartList = cartList.filter(p => p.productId != props.productId)
+        let tempSize     
+
+        if(method === 'increase') 
+            selectedProduct.size = tempSize = size+1
+        else
+            selectedProduct.size = tempSize = size-1
+
+        newCartList.splice(selectedProductIndex, 0, selectedProduct)
+        sessionStorage.setItem('cart', JSON.stringify(newCartList))
+        setSize(tempSize)
+
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/removeFromCart`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/changeSize`, {
                 method: "POST",
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    mobile: auth.mobile,
-                    productId: props.productId
+                    mobile: sessionStorage.getItem('mobile'),
+                    productId: props.productId,
+                    size: tempSize
                 })
             })
-            if(response.ok) {
-                const newCartList = auth.cart.filter(p => p.productId != props.productId)
-                auth.setCart(newCartList)
-            }
+            if(!response.ok) {
+                if(method === 'increase') 
+                    tempSize = tempSize - 1
+                else  
+                    tempSize = tempSize + 1
 
+                selectedProduct.size = tempSize
+                newCartList.splice(selectedProductIndex, 0, selectedProduct)
+                sessionStorage.setItem('cart', JSON.stringify(newCartList))
+                setSize(tempSize)    
+            }
         } catch(err) {
             console.log(err)
         }
     }
+
+    
 
     let color
     if(props.color === 1)   
@@ -148,7 +176,7 @@ const ProductItemCartPage = props => {
                         alt="minus"/>
                 </button>
                 <div className="sizeNumber">
-                    {props.size}
+                    {size}
                 </div>
                 <button className="increaseSize" onClick={increaseSizeHandler}>
                     <img className="add"
@@ -159,7 +187,7 @@ const ProductItemCartPage = props => {
                 </button>
             </div>
             <img className="dustbin"
-                onClick={onDeleteHandler}
+                onClick={() => props.onRemoveFromCartHandler(props)}
                 src="/images/dustbin.svg"
                 width="100%"
                 height="100%"

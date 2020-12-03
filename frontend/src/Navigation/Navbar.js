@@ -21,11 +21,17 @@ const Navbar = () => {
     }
 
     const onAuthClickHandler = () => {
-        if(!auth.isLoggedIn) {
+        if(!JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
             history.push('/login')
         }
         else {
-            auth.logout()
+            sessionStorage.setItem('isLoggedIn', 'false')
+            sessionStorage.removeItem('name')
+            sessionStorage.removeItem('mobile')
+            sessionStorage.removeItem('wishlist')
+            sessionStorage.removeItem('cart')
+            sessionStorage.removeItem('yourOrders')
+            sessionStorage.removeItem('buy')
             closeMenuHandler()
             window.location.href = `${ process.env.NODE_ENV === "production" ? process.env.REACT_APP_BACKEND_URL : "http://localhost:3000"}/home`
         } 
@@ -36,33 +42,47 @@ const Navbar = () => {
     }
 
     const onYourOrdersClickHandler = () => {
-        if(auth.isLoggedIn) {
+        if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
             history.push('/yourOrders')
         }
         closeMenuHandler()
         auth.setWarning('Warning: Please Login first!')
     }
 
+    const onGoToCartHandler = () => {
+        if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
+            history.push("/home/cart")
+        }
+        else 
+            history.push("/signup")
+    }
+
+    const onGoToWishlistHandler = () => {
+        if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
+            history.push("/home/liked")
+        }
+        else 
+            history.push("/signup")
+    }
+
     return (
         <Header>
-            <Link to="/home/cart">
-                <div className="cart-logo">
+                <div className="cart-logo"
+                    onClick={onGoToCartHandler}>
                     <img className="cart-image"
                         src='./images/cart.svg' 
                         height="100%"
                         width="100%"
                         alt="cart-logo"/>
-                </div>
-            </Link>
-            <Link to="/home/liked">
-                <div className="heart-logo">
+                </div>    
+                <div className="heart-logo"
+                    onClick={onGoToWishlistHandler}>
                     <img 
                         src='./images/heart.svg'
                         height="100%"
                         width="100%"
                         alt="heart-logo"/>
                 </div>
-            </Link>
             <button className="menu-logo" onClick={openMenuHandler}>
                 <img 
                     src='./images/menu.png'
@@ -80,7 +100,7 @@ const Navbar = () => {
                     alt="profilePhoto">
                 </img>
                 <div className="halfCirlce"></div>
-                <div className="sideBarName">{auth.isLoggedIn ? auth.name : "Unkown User"}</div>
+                <div className="sideBarName">{JSON.parse(sessionStorage.getItem('isLoggedIn')) ? sessionStorage.getItem('name') : "Unkown User"}</div>
                 <div className="yourOrders" onClick={onYourOrdersClickHandler}>
                     <img className="icon"
                         src="images/list.svg"
@@ -91,7 +111,7 @@ const Navbar = () => {
                     <img className="icon"
                         src="images/signIn.svg"
                         alt="authIcon"/>
-                    <div className="text">{!auth.isLoggedIn ? "SignIn / Login" : "LogOut"}</div>
+                    <div className="text">{!JSON.parse(sessionStorage.getItem('isLoggedIn')) ? "SignIn / Login" : "LogOut"}</div>
                 </div>
                 <div className="about" onClick={onAboutClickHandler}>
                     <img className="icon"

@@ -7,6 +7,11 @@ import ProductsHome from './Products-home'
 import { AuthContext } from '../contexts/auth-context'
 
 const HomePage = () => {
+    if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
+        console.log('logged In')
+    } else {
+        console.log('logged Out')
+    }
 
     const auth = useContext(AuthContext)
 

@@ -47,9 +47,13 @@ const Verification = () => {
                 throw new Error(data.message)
             }
             
-            auth.login()
-            auth.setName(data.name)
-            auth.setMobile(mobileNumber)
+            // auth.login()
+            // auth.setName(data.name)
+            // auth.setMobile(mobileNumber)
+
+            sessionStorage.setItem('isLoggedIn', 'true')
+            sessionStorage.setItem('name', data.name)
+            sessionStorage.setItem('mobile', mobileNumber)
             
             history.push("/home")
         }catch(err) {

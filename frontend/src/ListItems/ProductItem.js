@@ -11,10 +11,8 @@ const ProductItem = props => {
     const [like, setLike] = useState(props.liked)
 
     const onLikeHandler = async () => {
-        if(auth.isLoggedIn) {
+        if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
             if(like) {
-                const newLikedList = auth.liked.filter(product => product.productId != props.productId)
-                auth.setLiked(newLikedList)
                 try {
                     const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/removeFromLiked`, {
                         method: "POST",
@@ -22,11 +20,13 @@ const ProductItem = props => {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            mobile: auth.mobile,
+                            mobile: sessionStorage.getItem('mobile'),
                             productId: props.productId
                         })
                     })
                     if(response.ok) {
+                        const newLikedList = JSON.parse(sessionStorage.getItem('wishlist')).filter(product => product.productId != props.productId)
+                        sessionStorage.setItem('wishlist', JSON.stringify(newLikedList))
                         setLike(false)
                     }   
                 }catch(err) {
@@ -41,9 +41,6 @@ const ProductItem = props => {
                     amount : props.amount,
                     image : props.image
                 }
-                const newLikedList = auth.liked
-                newLikedList.push(product)
-                auth.setLiked(newLikedList)
                 try {
                     const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/addToLiked`, {
                         method: "POST",
@@ -51,12 +48,17 @@ const ProductItem = props => {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            mobile: auth.mobile,
+                            mobile: sessionStorage.getItem('mobile'),
                             productId: props.productId
                         })
                     })
-                    if(response.ok) 
+                    if(response.ok) {
+                        const newLikedList = JSON.parse(sessionStorage.getItem('wishlist'))
+                        newLikedList.push(product)
+                        sessionStorage.setItem('wishlist', JSON.stringify(newLikedList))
                         setLike(true)
+                    }
+                        
                 }catch(err) {
                     console.log(err)
                 }
