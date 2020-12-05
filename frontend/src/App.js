@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { Helmet } from 'react-helmet'
 
 import HomePage from './Pages/Home-Page'
 import CartPage from './Pages/Cart-Page'
@@ -74,14 +75,25 @@ const App = () => {
 
   return (
     
+    
     <AuthContext.Provider
       value={{ warning: warning, setWarning: setWarning}}>
-        
+      <Helmet>
+      <title>Shoes store in Mira road - Shoee</title>
+      <meta charset="utf-8" />
+      <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#000000"/>
+      <meta
+        name="description"
+        content="Shoee is an underdevelopment E-commerce webApp. Only for personal use."
+      />
+      <meta name="keywords" content="SHOES, SHOES STORE, SHOES STORE IN MIRA ROAD, SHOES STORE NEAR ME, MIRA ROAD"/>
+      </Helmet>
       <Router>
         {routes}
       </Router>
-    </AuthContext.Provider>
-    
+    </AuthContext.Provider> 
   )
 }
 
