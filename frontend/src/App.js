@@ -76,6 +76,7 @@ const App = () => {
     
     <AuthContext.Provider
       value={{ warning: warning, setWarning: setWarning}}>
+        
       <Router>
         {routes}
       </Router>
