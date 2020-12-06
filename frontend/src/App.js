@@ -81,9 +81,7 @@ const App = () => {
       <Helmet>
       <title>Shoes store in Mira road - Shoee</title>
       <meta charset="utf-8" />
-      <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="theme-color" content="#000000"/>
       <meta
         name="description"
         content="Shoee is an underdevelopment E-commerce webApp. Only for personal use."
