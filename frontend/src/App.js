@@ -86,7 +86,7 @@ const App = () => {
         name="description"
         content="Shoee is an underdevelopment E-commerce webApp. Only for personal use."
       />
-      <meta name="keywords" content="SHOES, SHOES STORE, SHOES STORE IN MIRA ROAD, SHOES STORE NEAR ME, MIRA ROAD"/>
+      <meta name="keywords" content="shoes, shoes store in mira road, shoes store near me, mira road, shoee, shoee heroku"/>
       </Helmet>
       <Router>
         {routes}
