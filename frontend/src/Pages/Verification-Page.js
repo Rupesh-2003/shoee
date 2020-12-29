@@ -49,7 +49,10 @@ const Verification = () => {
             sessionStorage.setItem('cart', JSON.stringify([]))
             sessionStorage.setItem('yourOrders', JSON.stringify([]))
             
-            history.push("/home")
+            //because app.js was not updating isLoggedIn value from sessionStorage
+            window.location.href = `/home`
+
+            // history.push("/home")
         }catch(err) {
             setError(err.message || 'Rupesh')
         }

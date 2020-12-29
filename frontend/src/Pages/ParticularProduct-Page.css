@@ -4,7 +4,7 @@
     height: 3.5%;
     left: 4.5%;
     top: 2.3%;
-    z-index: 1;
+    z-index: 3;
     background-color: transparent;
 }
 .photo-div {
@@ -19,12 +19,13 @@
     margin: 0;
 }
 .photo-div img {
-    position: absolute;
+    /* position: absolute; */
     width: 60%;
     height: 94%;
-    right: 19.5%;
-    left: 19.5%;
-    background-color: transparent;
+    /* right: 19.5%;
+    left: 19.5%; */
+    /* background-color: transparent;
+    border: solid black 1px; */
 }
 .photo-div div img {
     background-color: transparent;
@@ -163,4 +164,17 @@
     width: 43%;
     height: 7%;
     right: 4%;
+}
+.swiper-container {
+    margin-top: 2%;
+    height: 90%;
+    width: 95%;
+    background-color: white;
+}
+.temp00 {
+    text-align: center;
+    background-color: white;
+}
+.swiper-container pagination {
+    background-color: white;
 }

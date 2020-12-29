@@ -5,6 +5,16 @@ import './ParticularProduct-Page.css'
 import { PRODUCTS_HOME} from './Products-home'
 import { AuthContext } from '../contexts/auth-context'
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+
+
+
 const ParticularProduct = () => {
     let history = useHistory()
     const auth = useContext(AuthContext)
@@ -121,12 +131,26 @@ const ParticularProduct = () => {
                 width="100%"
                 height="100%"
                 alt="backArrow"/>
-            <div className="photo-div">
+            {/* <div className="photo-div">
                 <img src= {requiredProduct.image}
                     width="100%"
                     height="100%"
                     alt="productImage"/>
-            </div>
+            </div> */}
+
+            <div className="photo-div">
+            <Swiper className="swiper-container" pagination={true}>
+                <SwiperSlide className="temp00">
+                    <img src= {requiredProduct.image} alt="productImage"/>
+                </SwiperSlide>
+                <SwiperSlide className="temp00">
+                    <img src= {requiredProduct.image} alt="productImage"/>
+                </SwiperSlide>
+                <SwiperSlide className="temp00">Slide 3</SwiperSlide>
+                <SwiperSlide className="temp00">Slide 4</SwiperSlide>
+            </Swiper>
+            </div> 
+
             <div className="model-product">
                 {requiredProduct.brand} {requiredProduct.model}
             </div>
