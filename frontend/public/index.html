@@ -13,6 +13,7 @@
     />
     <meta name="keywords" content="SHOES, SHOES STORE, SHOES STORE IN MIRA ROAD, SHOES STORE NEAR ME, MIRA ROAD, shoee, shoee heroku"/>
     <title>Shoes store in Mira road - Shoee</title>
+    <link rel="manifest" href="manifest.json"/>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -20,5 +21,10 @@
     <div id="drawer-hook"></div>
     <div id="backdrop-hook"></div>
     <div id="modal-hook"></div>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+      }
+    </script>
   </body>
 </html>
