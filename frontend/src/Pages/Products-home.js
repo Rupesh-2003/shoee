@@ -329,7 +329,7 @@ const PRODUCTS_SPORTS = [
     }
 ]
 
-const ProductHome = () => {
+const ProductHome = props => {
     let page = useParams().page
     
     let listname
@@ -346,6 +346,8 @@ const ProductHome = () => {
     else {
         listname = PRODUCTS_SPORTS
     }
+
+    console.log(page)
     
     return (
         <ProductList productList={listname}/>

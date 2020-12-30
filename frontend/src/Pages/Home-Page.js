@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 
 import './Home-Page.css'
 import Navbar from '../Navigation/Navbar'
@@ -6,7 +7,12 @@ import OptionBar from '../Navigation/OptionBar'
 import ProductsHome from './Products-home'
 import { AuthContext } from '../contexts/auth-context'
 
-const HomePage = () => {   
+const HomePage = () => {
+    let page = useParams().page
+
+    if( page !== 'home' && page !== 'trending' && page !== 'casual' && page !== 'sports') {
+        window.location.href = `/home`
+    }
 
     if(JSON.parse(sessionStorage.getItem('isLoggedIn'))) {
         console.log('logged In')

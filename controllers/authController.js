@@ -143,7 +143,10 @@ const verification = async (req, res, next) => {
             }
         }
         else {
-            isMobileTryingToSignUp.remove()
+
+            //if once user entered wrong OTP he was getting removed from verification db
+            // isMobileTryingToSignUp.remove()
+            
             res.status(401).json({message : 'Wrong OTP'}) 
             return
         }
